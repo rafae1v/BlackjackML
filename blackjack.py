@@ -19,16 +19,18 @@ class Deck():
 
 		random.shuffle(self.contents)
 
-	def draw(self):
+	def draw_delete(self):
 
 		self.contents.pop(0)
 
 
+#######TESTS#########
 
 
 deck1 = Deck()
 
-print(deck.draw())
+print(deck1.contents[0])
+print(deck1.draw())
 
 print(len(deck1.contents))
 
