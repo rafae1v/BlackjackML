@@ -36,10 +36,7 @@ class Player():
 		
 	#Takes a card from the deck and stores it in hand. Also pops the card from the deck
 	def draw(self, deck):
-
-		self.hand.append(deck.contents[0])
-
-		deck.draw_delete()
+		self.hand.append(deck.draw())
 
 
 

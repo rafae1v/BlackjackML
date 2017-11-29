@@ -34,9 +34,7 @@ class Deck():
     def draw(self):
         return self.contents.pop(0)
 
-
-deck1 = Deck()
-
-print(deck1.draw())
-
-print(len(deck1.contents))
+if __name__ == "__main__":
+    deck1 = Deck()
+    print(deck1.draw())
+    print(len(deck1.contents))

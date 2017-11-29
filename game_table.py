@@ -2,7 +2,7 @@ from individual_player import Player
 from blackjack import Deck
 
 #defines a game/table instance
-def Table():
+class Table():
 
 	def __init__(self):
 
@@ -31,5 +31,5 @@ def Table():
 		self.player1.draw(self.deck)
 
 	def playDealer(self):
-		while getDealerScore() < 17:
+		while self.getDealerScore() < 17:
 			self.dealer.draw(self.deck)
