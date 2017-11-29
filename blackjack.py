@@ -37,6 +37,6 @@ class Deck():
 
 deck1 = Deck()
 
-print(deck1.draw_delete())
+print(deck1.draw())
 
 print(len(deck1.contents))
