@@ -30,7 +30,7 @@ class Deck():
 deck1 = Deck()
 
 print(deck1.contents[0])
-print(deck1.draw())
+print(deck1.draw_delete())
 
 print(len(deck1.contents))
 
