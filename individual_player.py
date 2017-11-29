@@ -1,4 +1,4 @@
-from blackjack import deck
+from blackjack import Deck
 
 class Player():
 
@@ -18,22 +18,12 @@ class Player():
 		numberOfAces = 0
 
 		for card in self.hand:
-
-			#splits the card (which is really just a string) at the first space
-			temp = card.split()
-
-			#if the first index of the returned list is a number and not a face, then add the total value
-			if temp[0].isdigit():
-				points += int(temp[0])
-
-			#keeps track of number of aces and defaults to a value of 11 until bust
-			elif temp[0] == 'Ace':
-				points += 11
+			#keeps track of number of aces
+			if card.rank == 'Ace':
 				numberOfAces +=1
 
-			#any face card is value of 10
-			else:
-				points += 10
+			#add value of current card to points
+			points += card.value
 
 		#when there are aces and you have already busted, then it changes it to value of 1
 		while numberOfAces > 0 and points > 21:
