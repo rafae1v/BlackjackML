@@ -1,38 +1,42 @@
-import random 
+import random
+
 
 class Deck():
 
-	def __init__(self):
-		suits = ['Diamonds', 'Hearts', 'Clubs', 'Spades']
-		face_cards = ['Jack', 'Queen', 'King', 'Ace'] 
+    class Card:
+        def __init__(self, card_suit, card_rank):
+            self.suit = card_suit
+            self.rank = card_rank
+            if card_rank in range(2,11):
+                self.value = self.rank
+            elif card_rank == 'Ace':
+                self.value = 11
+            else:
+                self.value = 10
 
-		self.contents = []
+        def __str__(self):
+            return str(self.rank) + " of " + str(self.suit)
 
-		for suit in suits:
+    def __init__(self):
+        suits = ['Diamonds', 'Hearts', 'Clubs', 'Spades']
+        face_cards = ['Jack', 'Queen', 'King', 'Ace']
 
-			for x in range(2,11):
-				self.contents.append(str(x) + ' of ' + suit)
+        self.contents = []
 
-			for face in face_cards:
-				self.contents.append(face + ' of ' + suit)
+        for suit in suits:
+            for x in range(2, 11):
+                self.contents.append(self.Card(suit,x))
 
+            for face in face_cards:
+                self.contents.append(self.Card(suit,face))
+        random.shuffle(self.contents)
 
-		random.shuffle(self.contents)
-
-	def draw_delete(self):
-
-		self.contents.pop(0)
-
-
-#######TESTS#########
+    def draw(self):
+        return self.contents.pop(0)
 
 
 deck1 = Deck()
 
-print(deck1.contents[0])
 print(deck1.draw_delete())
 
 print(len(deck1.contents))
-
-
-
