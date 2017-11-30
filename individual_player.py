@@ -9,25 +9,26 @@ class Player():
 		self.hand = []
 		self.name = name
 		self.points = 0
+		self.numberOfAces = 0
 
 
 	#Caclutes the points that a player currently has in his hand and handles the Ace dilema
 	def addUpTotal(self):
 
 		points = 0
-		numberOfAces = 0
+		self.numberOfAces = 0
 
 		for card in self.hand:
 			#keeps track of number of aces
 			if card.rank == 'Ace':
-				numberOfAces +=1
+				self.numberOfAces += 1
 
 			#add value of current card to points
 			points += card.value
 
 		#when there are aces and you have already busted, then it changes it to value of 1
-		while numberOfAces > 0 and points > 21:
-			numberOfAces -= 1
+		while self.numberOfAces > 0 and points > 21:
+			self.numberOfAces -= 1
 			points -= 10
 
 		return points

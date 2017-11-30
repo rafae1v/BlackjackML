@@ -11,7 +11,11 @@ busted = False
 print("Dealer is showing:")
 print(table.dealer.hand[0])
 print("Player's hand:")
-print(table.player1.hand[0],",", table.player1.hand[1], ":",table.getPlayerScore())
+score = table.getPlayerScore()
+if table.player1.numberOfAces > 0:
+    print(table.player1.hand[0], ",", table.player1.hand[1], ": soft", score)
+else:
+    print(table.player1.hand[0],",", table.player1.hand[1], ":", score)
 print()
 response = input("Would you like to hit or stay? (h/s)")
 while response == 'h':
@@ -29,7 +33,11 @@ while response == 'h':
         for card in table.player1.hand:
             print(card, end=', ')
         print()
-        print("Current score:", table.getPlayerScore())
+        score = table.getPlayerScore()
+        if table.player1.numberOfAces > 0:
+            print("Current score: soft", score)
+        else:
+            print("Current score:", score)
     print()
     response = input("Would you like to hit or stay? (h/s)")
 
